@@ -2,8 +2,10 @@ require("dotenv").config();
 const connectDB = require("./configs/dbConn");
 connectDB();
 const express = require("express");
+const cors = require("cors");
 const port = process.env.PORT || 4000;
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.listen(port, () => {

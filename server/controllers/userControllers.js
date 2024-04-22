@@ -6,6 +6,10 @@ const nodemailer = require("nodemailer");
 const registerUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    const alreadyRegistered = await User.find({ email: email });
+    if (alreadyRegistered) {
+      return res.json({ message: "User already registered" });
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       email: email,
@@ -61,7 +65,7 @@ const forgotPassword = async (req, res) => {
     const sendMail = async () => {
       const info = await transporter.sendMail({
         from: '"kamille35 Foo Koch 👻" <kamille35@ethereal.email>', // sender address
-        to: "example31@gmail.com", // list of receivers
+        to: `${email}`, // list of receivers
         subject: "OTP for password reset", // Subject line
         text: `${otp}`, // plain text body
       });
