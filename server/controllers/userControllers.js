@@ -82,8 +82,24 @@ const forgotPassword = async (req, res) => {
   }
 };
 
+const resetPassword = async (req, res) => {
+  const { otp, newPassword } = req.body;
+  const user = await User.findOne({ otp: otp });
+  if (!user) {
+    return res.json({ message: "Wrong OTP" });
+  }
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+  const passwordResetted = await User.findOneAndUpdate(
+    { otp: otp },
+    { password: hashedPassword, otp: "" },
+    { new: true }
+  );
+  res.json({ message: "Password resetted successfully", passwordResetted });
+};
+
 module.exports = {
   registerUser,
   loginUser,
   forgotPassword,
+  resetPassword,
 };
