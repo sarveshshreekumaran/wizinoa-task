@@ -4,6 +4,7 @@ import React from "react";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -24,6 +25,10 @@ function App() {
         {
           path: "/forgot_password",
           element: <ForgotPassword />,
+        },
+        {
+          path: "/reset_password",
+          element: <ResetPassword />,
         },
       ],
     },
