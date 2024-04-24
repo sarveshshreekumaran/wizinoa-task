@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-function FileUpload() {
-  const [fileUploadForm, setFileUploadForm] = useState();
+function EditFile(props) {
+  let { id } = useParams();
   const navigate = useNavigate();
+  const [fileEditForm, setFileEditForm] = useState();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const upload = async (formData) => {
+    const edit = async (formData, id) => {
       try {
-        const response = await fetch("http://localhost:4000/file", {
-          method: "POST",
+        const response = await fetch(`http://localhost:4000/file/${id}`, {
+          method: "PUT",
           body: formData,
         });
         const result = await response.json();
@@ -21,12 +22,12 @@ function FileUpload() {
       }
     };
     const formData = new FormData();
-    formData.append("file", fileUploadForm);
-    upload(formData);
+    formData.append("file", fileEditForm);
+    edit(formData, id);
   };
 
   const onChange = (e) => {
-    setFileUploadForm(e.target.files[0]);
+    setFileEditForm(e.target.files[0]);
   };
 
   return (
@@ -55,4 +56,4 @@ function FileUpload() {
   );
 }
 
-export default FileUpload;
+export default EditFile;

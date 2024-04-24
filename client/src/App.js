@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import FileUpload from "./components/FileUpload";
+import File from "./components/File";
+import EditFile from "./components/EditFile";
 
 import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,7 +16,7 @@ function App() {
     {
       element: <Layout />,
       children: [
-        { path: "/", element: <h1>Hello</h1> },
+        { path: "/", element: <File /> },
         {
           path: "/register",
           element: <Register />,
@@ -34,6 +36,10 @@ function App() {
         {
           path: "/file_upload",
           element: <FileUpload />,
+        },
+        {
+          path: "/file_edit/:id",
+          element: <EditFile />,
         },
       ],
     },

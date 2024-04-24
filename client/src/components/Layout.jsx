@@ -1,9 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Header from "./Header";
 
 function Layout() {
   return (
-    <div style={{ background: "lightblue", height: "100vh" }}>
+    <div style={{ background: "lightblue" }}>
+      <Header />
       <Outlet />
     </div>
   );
