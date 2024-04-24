@@ -5,6 +5,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+import FileUpload from "./components/FileUpload";
 
 import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -13,7 +14,7 @@ function App() {
     {
       element: <Layout />,
       children: [
-        { path: "/", element: <h1>Home</h1> },
+        { path: "/", element: <h1>Hello</h1> },
         {
           path: "/register",
           element: <Register />,
@@ -29,6 +30,10 @@ function App() {
         {
           path: "/reset_password",
           element: <ResetPassword />,
+        },
+        {
+          path: "/file_upload",
+          element: <FileUpload />,
         },
       ],
     },
