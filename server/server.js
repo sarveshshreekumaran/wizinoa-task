@@ -12,4 +12,6 @@ app.listen(port, () => {
   console.log(`Server listing on ${port}`);
 });
 const userRoutes = require("./routes/userRoutes");
+const fileRoutes = require("./routes/fileRoutes");
 app.use("/user", userRoutes);
+app.use("/file", fileRoutes);
