@@ -10,6 +10,7 @@ function Header() {
       }}
     >
       <nav style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Link to="/userdetails">User Info</Link>
         <Link to="/">Home</Link>
         <Link to="/register">Register</Link>
         <Link to="login">Login</Link>

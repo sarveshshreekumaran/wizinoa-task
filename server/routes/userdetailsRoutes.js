@@ -11,11 +11,10 @@ router.get("/", (req, res) => {
     cpus: os.cpus()[0].model,
     totalmem: os.totalmem(),
     userInfo: os.userInfo(),
-    headers: req.headers,
+    browser: req.headers["sec-ch-ua"]?.split(",")[2],
     ip: req.ip,
   };
-  console.log();
-  res.json({ userdetails });
+  res.json(userdetails);
 });
 
 module.exports = router;

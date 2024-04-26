@@ -8,6 +8,7 @@ import ResetPassword from "./components/ResetPassword";
 import FileUpload from "./components/FileUpload";
 import File from "./components/File";
 import EditFile from "./components/EditFile";
+import UserDetails from "./components/UserDetails";
 
 import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -40,6 +41,10 @@ function App() {
         {
           path: "/file_edit/:id",
           element: <EditFile />,
+        },
+        {
+          path: "/userdetails",
+          element: <UserDetails />,
         },
       ],
     },
