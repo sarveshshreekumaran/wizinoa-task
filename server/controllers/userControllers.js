@@ -44,11 +44,7 @@ const forgotPassword = async (req, res) => {
     if (!user) {
       return res.json({ message: " User not found, please check your email" });
     }
-    const otp = otpGenerator.generate(6, {
-      upperCaseAlphabets: false,
-      lowerCaseAlphabets: false,
-      specialChars: false,
-    });
+    const otp = Math.floor(Math.random() * 900000 + 100000);
     const generatedOtp = await User.findOneAndUpdate(
       { email: email },
       { otp: otp },
