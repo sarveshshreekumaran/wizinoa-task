@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
-const otpGenerator = require("otp-generator");
 const nodemailer = require("nodemailer");
 
 const registerUser = async (req, res) => {
