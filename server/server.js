@@ -14,6 +14,8 @@ app.listen(port, () => {
 const userRoutes = require("./routes/userRoutes");
 const fileRoutes = require("./routes/fileRoutes");
 const userdetailsRoutes = require("./routes/userdetailsRoutes");
+const bulkmailRoutes = require("./routes/bulkmailRoutes");
 app.use("/user", userRoutes);
 app.use("/file", fileRoutes);
 app.use("/userdetails", userdetailsRoutes);
+app.use("/bulkmail", bulkmailRoutes);
