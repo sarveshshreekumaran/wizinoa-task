@@ -9,6 +9,7 @@ import FileUpload from "./components/FileUpload";
 import File from "./components/File";
 import EditFile from "./components/EditFile";
 import UserDetails from "./components/UserDetails";
+import BulkMail from "./components/BulkMail";
 
 import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -45,6 +46,10 @@ function App() {
         {
           path: "/userdetails",
           element: <UserDetails />,
+        },
+        {
+          path: "/bulkmail",
+          element: <BulkMail />,
         },
       ],
     },

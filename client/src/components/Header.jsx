@@ -15,6 +15,7 @@ function Header() {
         <Link to="/register">Register</Link>
         <Link to="login">Login</Link>
         <Link to="/file_upload">File Upload</Link>
+        <Link to="/bulkmail">Bulk Mailing</Link>
       </nav>
     </header>
   );

@@ -34,7 +34,13 @@ function FileUpload() {
       <form encType="multipart/form-data" onSubmit={onSubmit}>
         <div>
           <label htmlFor="file">Choose a file</label>
-          <input type="file" id="file" name="myFile" onChange={onChange} />
+          <input
+            type="file"
+            id="file"
+            name="myFile"
+            onChange={onChange}
+            required
+          />
         </div>
         <div>
           <button
