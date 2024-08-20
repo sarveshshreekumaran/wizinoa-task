@@ -5,6 +5,8 @@ function ResetPassword() {
     otp: "",
     newPassword: "",
   });
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
 
   const { otp, newPassword } = passwordResetForm;
 
@@ -27,7 +29,7 @@ function ResetPassword() {
       });
       return response.json();
     };
-    registerUser("http://localhost:4000/user/reset_password", {
+    registerUser(`${port}/user/reset_password`, {
       ...passwordResetForm,
     }).then((data) => {
       alert(data.message);

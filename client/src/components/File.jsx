@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 function File() {
   const [files, setFiles] = useState();
   const [loading, setLoading] = useState(true);
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
   useEffect(() => {
     async function getFiles() {
-      const response = await fetch("http://localhost:4000/file");
+      const response = await fetch(`${port}/file`);
       const files = await response.json();
       // console.log(files);
       return files;
@@ -19,7 +21,7 @@ function File() {
 
   const onClick = (id) => {
     async function deleteFile(id) {
-      const response = await fetch(`http://localhost:4000/file/${id}`, {
+      const response = await fetch(`${port}/file/${id}`, {
         method: "delete",
       });
       const deletedFile = await response.json();

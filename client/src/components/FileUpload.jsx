@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 function FileUpload() {
   const [fileUploadForm, setFileUploadForm] = useState();
   const navigate = useNavigate();
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
 
   const onSubmit = (e) => {
     e.preventDefault();
     const upload = async (formData) => {
       try {
-        const response = await fetch("http://localhost:4000/file", {
+        const response = await fetch(`${port}/file`, {
           method: "POST",
           body: formData,
         });

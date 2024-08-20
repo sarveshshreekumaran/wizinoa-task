@@ -6,6 +6,8 @@ function Register() {
     email: "",
     password: "",
   });
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
 
   const { email, password } = registerForm;
 
@@ -28,7 +30,7 @@ function Register() {
       });
       return response.json();
     };
-    registerUser("http://localhost:4000/user/register", {
+    registerUser(`${port}/user/register`, {
       ...registerForm,
     }).then((data) => {
       // console.log(data);

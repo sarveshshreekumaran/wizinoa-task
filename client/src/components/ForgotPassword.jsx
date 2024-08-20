@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
 
   const onChange = (e) => {
     setEmail(e.target.value);
@@ -21,7 +23,7 @@ function ForgotPassword() {
       });
       return response.json();
     };
-    forgotPassword("http://localhost:4000/user/forgot_password", {
+    forgotPassword(`${port}/user/forgot_password`, {
       email: email,
     }).then((data) => {
       alert(data.message);

@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 
 function UserDetails() {
   const [userDetails, setUserDetails] = useState({});
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
   useEffect(() => {
     async function getUserDetails() {
-      const response = await fetch("http://localhost:4000/userdetails");
+      const response = await fetch(`${port}/userdetails`);
       const userdetails = await response.json();
       // console.log(userdetails);
       return userdetails;

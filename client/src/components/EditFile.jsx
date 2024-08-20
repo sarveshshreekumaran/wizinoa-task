@@ -5,12 +5,14 @@ function EditFile(props) {
   let { id } = useParams();
   const navigate = useNavigate();
   const [fileEditForm, setFileEditForm] = useState();
+  const port =
+    process.env.REACT_APP_PRODUCTION_PORT || process.env.REACT_APP_DEV_PORT;
 
   const onSubmit = (e) => {
     e.preventDefault();
     const edit = async (formData, id) => {
       try {
-        const response = await fetch(`http://localhost:4000/file/${id}`, {
+        const response = await fetch(`${port}/file/${id}`, {
           method: "PUT",
           body: formData,
         });
