@@ -11,7 +11,7 @@ function ForgotPassword() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const registerUser = async (url, data) => {
+    const forgotPassword = async (url, data) => {
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -21,11 +21,12 @@ function ForgotPassword() {
       });
       return response.json();
     };
-    registerUser("http://localhost:4000/user/forgot_password", {
+    forgotPassword("http://localhost:4000/user/forgot_password", {
       email: email,
     }).then((data) => {
+      alert(data.message);
       navigate("/reset_password");
-      console.log(data);
+      // console.log(data);
     });
   };
 

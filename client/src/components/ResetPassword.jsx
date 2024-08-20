@@ -30,7 +30,7 @@ function ResetPassword() {
     registerUser("http://localhost:4000/user/reset_password", {
       ...passwordResetForm,
     }).then((data) => {
-      console.log(data);
+      alert(data.message);
     });
   };
 

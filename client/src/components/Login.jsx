@@ -18,7 +18,7 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const registerUser = async (url, data) => {
+    const loginUser = async (url, data) => {
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -28,10 +28,11 @@ function Login() {
       });
       return response.json();
     };
-    registerUser("http://localhost:4000/user/login", {
+    loginUser("http://localhost:4000/user/login", {
       ...loginForm,
     }).then((data) => {
-      console.log(data);
+      // console.log(data);
+      alert(data.message);
     });
   };
 

@@ -14,7 +14,7 @@ const uploadFile = (req, res) => {
       if (error) {
         return res.json({ Error: error.message });
       }
-      console.log(result);
+      // console.log(result);
       const file = await File.create({
         name: `${result.original_filename}`,
         fileURL: `${result.secure_url}`,
@@ -42,7 +42,7 @@ const updateFile = async (req, res) => {
       if (error) {
         return res.json({ Error: error.message });
       }
-      console.log(result);
+      // console.log(result);
       const file = await File.findByIdAndUpdate(
         { _id: id },
         {

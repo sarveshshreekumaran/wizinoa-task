@@ -15,7 +15,8 @@ function EditFile(props) {
           body: formData,
         });
         const result = await response.json();
-        console.log("Success:", result);
+        alert(result.message);
+        // console.log("Success:", result);
         navigate("/");
       } catch (error) {
         console.log("Error:", error);

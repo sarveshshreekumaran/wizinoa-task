@@ -8,7 +8,7 @@ function File() {
     async function getFiles() {
       const response = await fetch("http://localhost:4000/file");
       const files = await response.json();
-      console.log(files);
+      // console.log(files);
       return files;
     }
     getFiles().then((data) => {
@@ -26,7 +26,8 @@ function File() {
       return deletedFile;
     }
     deleteFile(id).then((data) => {
-      console.log(data);
+      // console.log(data);
+      alert(data.message);
       const filteredFiles = files.filter((file) => file._id !== id);
       setFiles(filteredFiles);
     });

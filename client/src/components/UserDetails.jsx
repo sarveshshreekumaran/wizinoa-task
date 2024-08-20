@@ -6,12 +6,12 @@ function UserDetails() {
     async function getUserDetails() {
       const response = await fetch("http://localhost:4000/userdetails");
       const userdetails = await response.json();
-      console.log(userdetails);
+      // console.log(userdetails);
       return userdetails;
     }
     getUserDetails().then((data) => {
       setUserDetails(data);
-      console.log(data);
+      // console.log(data);
     });
   }, []);
 

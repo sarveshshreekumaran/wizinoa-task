@@ -14,7 +14,8 @@ function FileUpload() {
           body: formData,
         });
         const result = await response.json();
-        console.log("Success:", result);
+        // console.log("Success:", result);
+        alert(result.message);
         navigate("/");
       } catch (error) {
         console.log("Error:", error);

@@ -31,7 +31,8 @@ function Register() {
     registerUser("http://localhost:4000/user/register", {
       ...registerForm,
     }).then((data) => {
-      console.log(data);
+      // console.log(data);
+      alert(data.message);
     });
   };
 

@@ -5,7 +5,7 @@ const nodemailer = require("nodemailer");
 const registerUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const alreadyRegistered = await User.find({ email: email });
+    const alreadyRegistered = await User.findOne({ email: email });
     if (alreadyRegistered) {
       return res.json({ message: "User already registered" });
     }
@@ -65,13 +65,17 @@ const forgotPassword = async (req, res) => {
         text: `${otp}`, // plain text body
       });
 
-      console.log("Message sent: %s", info.messageId);
+      // console.log("Message sent: %s", info.messageId);
       // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
     };
 
     sendMail().catch((error) => console.log(error));
 
-    res.json({ otp: otp, generatedOtp });
+    res.json({
+      otp: otp,
+      generatedOtp,
+      message: "OTP generated successfully.",
+    });
   } catch (error) {
     res.json({ Error: error.message });
   }

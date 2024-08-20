@@ -12,7 +12,8 @@ function BulkMail() {
           body: formData,
         });
         const result = await response.json();
-        console.log("Success", result);
+        alert(result.message);
+        // console.log("Success", result);
       } catch (error) {
         console.log(error);
       }

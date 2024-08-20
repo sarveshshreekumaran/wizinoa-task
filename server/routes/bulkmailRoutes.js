@@ -25,7 +25,7 @@ router.post("/", upload.single("excel"), (req, res) => {
       subject: `Hi ${subject}`, // Subject line
       text: `Hello ${text}`, // plain text body
     });
-    console.log("Message sent: %s", info.messageId);
+    // console.log("Message sent: %s", info.messageId);
     // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
   };
 
@@ -35,7 +35,7 @@ router.post("/", upload.single("excel"), (req, res) => {
     const text = emails[i];
 
     sendMail(email, subject, text).catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
   }
   res.json({ message: "Emails are sended successfully" });
